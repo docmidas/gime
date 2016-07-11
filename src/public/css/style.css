@@ -1,0 +1,16 @@
+h1,
+p {
+  color: red;
+  text-align: center;
+  font-family: Verdana, Geneva, sans-serif;
+  font-size: 48px;
+}
+body {
+  background: blue;
+}
+header {
+  color: grey;
+}
+footer {
+  color: grey;
+}
