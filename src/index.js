@@ -26,8 +26,12 @@ require('./config/db');
 //Mount Middleware
 app.use('/users/?', require('./controllers/users'));
 app.use('/gifts/?', require('./controllers/gifts'));
+//app.use('//?', require('./controllers/'));
+
 
 app.use(require('./controllers/home'));
+
+
 
 //START SERVER
 var server = app.listen(3000, function() {
