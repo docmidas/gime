@@ -16,11 +16,11 @@ HomeController.route('/usersonly/?')
   });
 
 
-HomeController.route('/?')
+HomeController.route('/home/?')
   // GET /
   // Serve the homepage
   .get(function(req, res, next) {
-    res.render('home', {});
+    res.render('login', {});
   })
   // POST /
   // ------
@@ -34,7 +34,7 @@ HomeController.route('/?')
       }, function(err, user) {
         if (err) {
           console.log(err);
-          res.render('home', {error: err});
+          res.render('login', {error: err});
         } else {
           res.redirect('/usersonly');
         }
