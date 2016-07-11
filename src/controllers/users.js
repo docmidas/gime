@@ -40,8 +40,11 @@ Users.route('/?')
     User.find(function(err, users) { //first thing is Error and second thing is all users within user database
       console.log(users);  
       //console.log(err);
-      res.json(users);
-      //res.render('form');
+      //res.json(users);
+      res.render('users', {
+        pageTitle: "User Directory",
+        user: users
+      });
     })
   })
   .post(function(req, res) {

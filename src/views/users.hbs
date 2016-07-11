@@ -2,7 +2,8 @@
 <ul>
   {{#each user}}
     <li> 
-      <input type="checkbox" name="todo">{{this.username}} <a href="/users/{{@index}}">MoreInfo</a>
+      {{this.username}} <a href="/users/{{@index}}">MoreInfo</a><br />
+      {{this.email}} 
     </li>
   {{/each}}
 </ul>
