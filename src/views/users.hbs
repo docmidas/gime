@@ -1,0 +1,8 @@
+<h1>User List</h1>
+<ul>
+  {{#each user}}
+    <li> 
+      <input type="checkbox" name="todo">{{this.username}} <a href="/users/{{@index}}">MoreInfo</a>
+    </li>
+  {{/each}}
+</ul>
