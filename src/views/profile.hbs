@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body>
+  <header class="container clearfix">
+    <div class="row">
+      <div class="col-12"> 
+        <h1>{{pageTitle}}</h1>
+      </div>
+    </div>
+  </header>
+
+  <form method="post" action="/" accept-charset="utf-8">
+  	<input type="text" name="itemname" placeholder="Item Name" />
+  	<br />
+    <input type="text" name="description" placeholder="Description" />
+    <br />
+    <button>Register</button>
+  </form>
+
+  {{>footer}}
+</body>
+</html>
+
+
+
