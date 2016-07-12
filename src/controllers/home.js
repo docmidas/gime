@@ -12,11 +12,11 @@ HomeController.route('/usersonly/?')
 // GET /usersonly/
 // The page you see after registration
   .get(function(req, res, next) {
-    res.send('Users only page!');
+    res.render('signup', {});
   });
 
 
-HomeController.route('/home/?')
+HomeController.route('/?')
   // GET /
   // Serve the homepage
   .get(function(req, res, next) {
@@ -24,22 +24,23 @@ HomeController.route('/home/?')
   })
   // POST /
   // ------
-  // Register a new user
+  // Login User
   .post(function(req, res, next) {
-    bcrypt.hash(req.body.password, 10, function(err, hash) {
-      // Save user inside here
-      User.create({
-        username: req.body.username,
-        password: hash
-      }, function(err, user) {
-        if (err) {
-          console.log(err);
-          res.render('login', {error: err});
-        } else {
-          res.redirect('/usersonly');
-        }
-      });
-    });
+    User.findOne({username: req.body.username}, function(error, user) {
+      if (error || !user) {
+        res.send('Could not find user');
+      } else {
+        bcrypt.compare(req.body.password, user.password, function(err, result) {
+          if (err) {
+            res.send('ERROR: ' + err);
+          } else if (result) {
+            res.redirect('/users');
+          } else {
+            res.send('Wrong password!')
+          }
+        })
+      }
+    })
   });
 
 module.exports = HomeController;
