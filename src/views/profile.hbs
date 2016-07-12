@@ -37,6 +37,21 @@
     </form> 
   </main>
 
+  {{#each gift}}
+    <p> 
+      <div class="image">
+        <img class="gift-image" src="{{this.imgUrl}}"><br />
+      </div> 
+      <div> 
+        {{this.name}} <a href="/users/{{@index}}">MoreInfo</a><br />
+        {{this.description}}<br />
+        {{this.category}}<br />
+        {{this.price}}<br />
+      </div>
+
+    </p>
+  {{/each}}
+
 
 </body>
 </html>
