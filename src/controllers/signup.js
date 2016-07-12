@@ -39,8 +39,12 @@ SignupController.route('/?')
         username: req.body.username,
         password: hash,
         email: req.body.email,
-        firstName: req.body.firstName,
-        lastName: req.body.lastName
+        firstName: req.body.firstname,
+        lastName: req.body.lastname,
+        location: req.bodylocation,
+        bdaymonth: req.body.bdaymonth,
+        gender: req.body.gender
+
       }, function(err, user) {
         if (err) {
           console.log(err);

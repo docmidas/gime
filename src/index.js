@@ -27,6 +27,7 @@ require('./config/db');
 app.use('/users/?', require('./controllers/users'));
 app.use('/gifts/?', require('./controllers/gifts'));
 //app.use('//?', require('./controllers/'));
+app.use('/signup/?', require('./controllers/signup'));
 
 
 app.use(require('./controllers/home'));
