@@ -44,22 +44,14 @@ HomeController.route('/?')
                 var usersGifts = [];
                 for(var gi = 0; gi < giftList.length; gi++) {
                   if(giftList[gi].userId == user._id) {
-                    usersGifts.push(giftList[gi]);
-                    
+                    usersGifts.push(giftList[gi]);                    
                   }
                 }
                 console.log(usersGifts);
+                res.render('profile', {username: user.username, gift: usersGifts});  
               });
-
-
-
-              
-              
             });
-
-
-
-
+//////////
             //res.redirect('/profile', {userId: user._id});            
           } else {
             res.send('Wrong password!')
