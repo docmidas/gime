@@ -7,28 +7,29 @@
     
   </header>
 <body>
-  <h1>Sign up</h1>
-  <form method="post" action="/signup" accept-charset="utf-8" max length="1000">
-    <input type="text" name="firstname" placeholder="First Name" required />
-    <input type="text" name="lastname" placeholder="Last Name" required />
-    <br />
-    <input type="email" name="email" placeholder="Email" required />
-    <br />
-    <input type="text" name="username" placeholder="Username" required />
-    <br />
-    <input type="password" name="password" placeholder="Choose a Password" required />
-    <br />
-     <input type="password" name="password_confirmation" placeholder="Confirm Password" required />
-    <br />
-    <input type="text" name="location" placeholder="City" />
-    <br />
-    <input type="month" name="bdaymonth">
-    <br />
-    <input type="radio" name="gender" value="male">Male<br>
-    <input type="radio" name="gender" value="female">Female<brz>
-    <button>Sign Up!</button>
-  </form>
+  <main>
+    <h1>Sign up</h1>
+    <form method="post" action="/signup" accept-charset="utf-8" max length="1000">
+      <input type="text" name="firstname" placeholder="First Name" required />
+      <input type="text" name="lastname" placeholder="Last Name" required />
+      <br />
+      <input type="email" name="email" placeholder="Email" required />
+      <br />
+      <input type="text" name="username" placeholder="Username" required />
+      <br />
+      <input type="password" name="password" placeholder="Choose a Password" required />
+      <br />
+      <input type="password" name="password_confirmation" placeholder="Confirm Password" required />
+      <br />
+      <input type="text" name="location" placeholder="City" />
+      <br />
+      <input type="month" name="bdaymonth">
+      <br />
+      <input type="radio" name="gender" value="male">Male<br />
+      <input type="radio" name="gender" value="female">Female<br />
+      <button>Sign Up!</button>
+    </form>
+  </main>
+  <footer></footer>
 </body>
 </html>
-
-{{>footer}}
