@@ -1,31 +1,22 @@
+//Profiles Controller
 var express   = require('express'),
     Gifts  = express.Router(),
     fs        = require('fs'),
     mongoose  = require('mongoose'),
     Gift   = require('../models/gift');
 
- var testGifts = [{
-                      userId: "57851a10c810f1c74f6485ce",
-                      name: "sheng freddy nikes",
+ var testGifts = [{name: "freddy nikes",
                       category: "clothes",
                       imgUrl: "http://theshoegame.com/wp-content/uploads/2012/02/Air-Jordan-VI6-Freddy-Kruger-Customs-04.jpg",
                       description: "want these for Halloween. size 10",
                       price: 250
                     },
-                    { userId: "57851a10c810f1c74f6485ce",
-                      name: "kids tablet",
+                    {name: "kids tablet",
                       category: "computer",
                       imgUrl: "https://images-na.ssl-images-amazon.com/images/I/71ePnCmB%2BkL._SL1000_.jpg",
                       description: "1 blue and 1 pink... maybe",
                       price: 100
-                    },
-                    { userId: "57851085d518556f4f06ec79",
-                      name: "jaxx kids tablet",
-                      category: "computer",
-                      imgUrl: "https://images-na.ssl-images-amazon.com/images/I/71ePnCmB%2BkL._SL1000_.jpg",
-                      description: "1 blue and 1 pink... maybe",
-                      price: 100
-                    } ];   
+                    }];   
 
  //Mongoose
  Gifts.route('/:id/?')

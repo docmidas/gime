@@ -5,7 +5,8 @@
 var express         = require('express'),
     HomeController  = express.Router(),
     User            = require(__dirname + '/../models/user'),
-    bcrypt          = require('bcrypt');
+    bcrypt          = require('bcrypt'),
+    Gift            = require(__dirname + '/../models/gift');
 
 
 HomeController.route('/usersonly/?')
@@ -34,7 +35,30 @@ HomeController.route('/?')
           if (err) {
             res.send('ERROR: ' + err);
           } else if (result) {
-            res.redirect('/users');
+            // res.redirect('/users');
+            //res.redirect('/profile', {userId: req.body._id});
+            User.findById(user._id, function (err, task) {
+              console.log(user._id + "  " + user.firstName);
+              console.log("==================");
+              Gift.find(function(err, giftList) {
+                var usersGifts = [];
+                for(var gi = 0; gi < giftList.length; gi++) {
+                  if(giftList[gi].userId == user._id) {//usersGifts.push(giftList[gi];)
+                  console.log(giftList[gi]);
+                }
+                }
+              });
+
+
+
+              
+              
+            });
+
+
+
+
+            //res.redirect('/profile', {userId: user._id});            
           } else {
             res.send('Wrong password!')
           }
@@ -42,5 +66,7 @@ HomeController.route('/?')
       }
     })
   });
+
+
 
 module.exports = HomeController;
