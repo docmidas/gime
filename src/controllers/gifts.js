@@ -41,18 +41,19 @@ var express   = require('express'),
 
 Gifts.route('/?')
   .get(function(req, res) {
-    Gift.find(function(err, users) { //first thing is Error and second thing is all users within user database
-      console.log(users);  
+    Gift.find(function(err, gifts) { //first thing is Error and second thing is all gifts within user database
+      console.log(gifts);  
       //console.log(err);
-      res.json(users);
+      //res.json(gifts);
+      res.render('gifts', {gift: gifts});
       //res.render('form');
     })
   })
   .post(function(req, res) {
-    // User.create(req.body, function(err, users) {
-    Gift.create(testGifts, function(err, users) {
-      console.log(users);
-      res.json(users);
+    // User.create(req.body, function(err, gifts) {
+    Gift.create(testGifts, function(err, gifts) {
+      console.log(gifts);
+      res.json(gifts);
     });
   });  
 
