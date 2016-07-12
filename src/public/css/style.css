@@ -47,3 +47,7 @@ li a:hover:not(.active) {
 .active {
   background-color: lightBlue;
 }
+.form-block {
+  display: block;
+  margin: 15px;
+}
