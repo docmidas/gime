@@ -9,7 +9,8 @@ var express   = require('express'),
 //SUCCESFUL LOGIN OR SIGN UP LEADS HERE
  Users.route('/myprofile/?')
   .get(function(req, res, next) {
-    console.log();    
+    console.log(req.body);    
+    console.log(req.session.userId)
     res.render('profile', {});
   })
   .patch(function(req, res, next) {
