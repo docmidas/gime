@@ -1,49 +1,52 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title></title>
+  <title>My Profile</title>
   <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 <body>
-  <header class="container clearfix">
+  <header>
     <div class="row">
       <div class="col-12"> 
-        <h2>Profile</h2>
-        <div contentEditable="true">
-          <form>
-            <textarea>Some text...</textarea>
-          </form>
-        </div>
       </div>
     </div>
   </header>
   
-  <main>
-    <form method="post" action="/" accept-charset="utf-8">
-      <label for="name">Category</label>
-      <select name="Category" required />
-      <option value=""></option>
-      <option value="artsandcrafts">Arts and Crafts</option>
-      <option value="auto">Auto</option>
-      <option value="beauty">Beauty</option>
-      <option value="books">Books</option>
-      <option value="clothing">Clothing</option>
-      <option value="electronics">Electronics</option>
-      <option value="home">Home</option>
-      <option value="media">Media</option>
-      <option value="kids">Kids and Toys</option>
-      <option value="sports">Sports</option> 
-      </select>
-      <br><br>
-      <input type="image" name="picture" placeholder="Type Image url">
-      <br />
-      <input type="text" name="itemname" placeholder="Item Name" required />
-      <br />
-      <input type="text" name="description" placeholder="Description" />
-      <input type="number" name="price" placeholder="Estimated Price">
-      <br />
-      <button>Create</button>
-    </form> 
+  <main class="container">
+    <div class="row">
+      <div class="col-2">
+        <p>hello</p>
+      </div>
+      <div class="col-8">
+        <img src="https://i.kinja-img.com/gawker-media/image/upload/zec3un8rzcmblrdlyswb.JPG">
+        <form method="post" action="/membersonly/profile" accept-charset="utf-8">
+          <label for="name">Category</label>
+          <select name="category" required />
+          <option value=""></option>
+          <option value="artsandcrafts">Arts and Crafts</option>
+          <option value="auto">Auto</option>
+          <option value="beauty">Beauty</option>
+          <option value="books">Books</option>
+          <option value="clothing">Clothing</option>
+          <option value="electronics">Electronics</option>
+          <option value="home">Home</option>
+          <option value="media">Media</option>
+          <option value="kids">Kids and Toys</option>
+          <option value="sports">Sports</option> 
+          </select>
+          <br><br>
+          <input type="text" name="picture" placeholder="Type Image url">
+          <br />
+          <input type="text" name="itemname" placeholder="Item Name" required />
+          <br />
+          <input type="text" name="description" placeholder="Description" />
+          <input type="number" name="price" placeholder="Estimated Price">
+          <br />
+          <button>Create</button>
+        </form> 
+     </div>
+     <div class="col-2"></div>
+    </div> 
   </main>
 
   {{#each gift}}
