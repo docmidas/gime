@@ -28,7 +28,35 @@ HomeController.route('/signup/?')
 // Register a new user
 .post(function(req, res, next) {
   ////DEX, ensure unique username and email here!!!!!
-  bcrypt.hash(req.body.password, 10, function(err, hash) {
+  var unique = true;
+  var message = "";
+  var usernameCheck = false;
+  var emailCheck = false;
+  console.log("THIS IS THE ATTEMPTED UN: " + req.body.username);
+  console.log("THIS IS THE ATTEMPTED EMAIL: " + req.body.email);
+
+  
+  User.findOne({username: req.body.username}, function(error, username) {
+      if (username) {
+        console.log('if happeneddddddddd')
+        unique = false;
+        message = "Please retry: USERNAME is already taken";
+      }
+    });
+  User.findOne({email: req.body.email}, function(error, email) {
+      if (email) {
+        unique = false;
+        message = "Please try LOGGING IN. This email is already registered"
+      }
+    });
+  console.log("THIS IS THE UNIQUE VAL before unique check: " + unique);
+//
+  setTimeout(function() {  
+  if(unique === false){
+    console.log(message);
+    res.render('signup', {message: message}); 
+  }else{
+      bcrypt.hash(req.body.password, 10, function(err, hash) {
     // Save user inside here
     User.create({
       username: req.body.username,
@@ -45,20 +73,14 @@ HomeController.route('/signup/?')
         res.render('home', {error: err});
       } else {
         req.session.isLoggedIn  = true;
-        //req.session.userId      = user._id;
-        res.redirect('/membersonly/users/myprofile');
-
-
-        ////This should be for USER DIRECTORY
-        // User.find(function(err, users) { //first thing is Error and second thing is all gifts within user database
-        //   console.log(users);  //           
-        //   //res.json(gifts);
-        //   res.render('users', {user: users} ); //should be usersonly;          
-        // }) 
-        //////////////// end USER DIRECTORY         
+        req.session.userId      = user._id;
+        res.redirect('/membersonly/users/myprofile');      
       }
     });
   });
+  }//end of unique check
+}, 6000);
+
 });
 ////////=======================
 HomeController.route('/?')
