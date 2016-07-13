@@ -75,4 +75,4 @@ Gifts.route('/?')
   });  
   /////////
 
-module.exports = Gifts;
+module.exports = Profiles;
