@@ -7,8 +7,8 @@
 
 body {
   background-image: url(https://images.unsplash.com/photo-1453834190665-46ff0a1fbd5a?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&s=f1740ea71cff1e64b7c079cb9842ac0f);
-  background-size: 1000px;
-
+  background-size: 100%;
+ background-attachment: fixed;
 }
 
 form {
@@ -23,8 +23,22 @@ form {
     border: 1px solid #ccc;
     border-radius: 4px;
     box-sizing: border-box;
-    cursor: pointer;
   }
+}
+
+
+button, select {
+  width: 200px;
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  text-decoration: none;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+button:hover {
+    background-color: @blue;
 }
 
 footer {
@@ -37,13 +51,12 @@ p{
 }
 
 img {
-  display: inline;
+  display: inline-block;
   float: left;
   width: 150px;
   height: 150px;
+  border: @grey;
   border-radius: 50%;
-  shape-outside: circle();
-  shape-margin: 15px;
   margin: 10px 10px 5px 5px;
 }
 
@@ -89,7 +102,7 @@ ul {
   margin: 0;
   padding: 0;
   overflow: hidden;
-  background-color: #333;
+  background-color: @blue;
   position: fixed;
   left: 0;
   top: 0;
