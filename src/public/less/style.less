@@ -1,24 +1,35 @@
-@blue: lightBlue;
-@grey: grey;
-@red: red;
+@blue:      #4C649D;
+@lightBlue: #709CC1;
+@grey:      #6E7376;
+@pink:      #EEB4C0;
+@black:     #000000;
 
 
 body {
   background-image: url(https://images.unsplash.com/photo-1453834190665-46ff0a1fbd5a?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&s=f1740ea71cff1e64b7c079cb9842ac0f);
   background-size: 1000px;
-  margin-top: 75px;
-}
 
+}
 
 form {
   text-align: center;
   padding: 10px;
-  color: black;
+  color: @black;
+  input[type=text], [type=email], [type=password], [type=month], [type=number] {
+    width: 400px;
+    padding: 5px 10px;
+    margin: 4px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    cursor: pointer;
+  }
 }
 
 footer {
   text-align: left;
-  color: opaque;
+  color: @grey;
 }
 
 p{
@@ -26,29 +37,14 @@ p{
 }
 
 img {
+  display: inline;
   float: left;
   width: 150px;
   height: 150px;
   border-radius: 50%;
-
   shape-outside: circle();
   shape-margin: 15px;
-}
-
-.gift-image {
-
-  display: inline-block;
-  float: left;
-  padding: 5px;
-  width: 100px;
-  object-fit: cover;
-}
-
-.row {
-  border: 2px solid black;
-  border-radius: 10px;
-  box-sizing: border-box;
-
+  margin: 10px 10px 5px 5px;
 }
 
 .site-footer {
@@ -63,7 +59,7 @@ img {
 }
 
 h1 {
-  color: @red; 
+  color: @pink; 
 	text-align: center;
   font-family: sans-serif;
   font-size: 48px;
@@ -71,11 +67,16 @@ h1 {
 }
 
 h2 {
-  color: @red; 
+  color: @pink; 
   text-align: left;
   font-family: sans-serif;
   font-size: 42px;
   padding-top: 20px;
+}
+
+h3  {
+  color: @lightBlue;
+  text-align: center;
 }
 
 header {
@@ -83,12 +84,7 @@ header {
   color:  @grey; 
 }
 
-img {
-  float: left; 
-  margin: 0 0 15px 15px;
-}
-
-ul {
+ul { 
   list-style-type: none;
   margin: 0;
   padding: 0;
@@ -113,7 +109,7 @@ li a {
 }
 
 li a:hover {
-  background-color: @red;
+  background-color: @pink;
 }
 
 .col-2{
@@ -122,18 +118,31 @@ li a:hover {
   border: 1px solid blue;
 }
 
+
+.col-12{
+  width: 100%;
+  float: left;
+  margin-top: 10px;
+  border: 1px solid blue;
+}
+
+
 .col-8 {
   width: 100%;
   float: left;
   border: 1px solid blue;
 }
 
-.form-block {
-  display: block;
-  margin: 15px;
+.header-container  {
+  margin-top: 75px
 }
 
-input[type=text], [type=email], [type=password], [type=month], select {
+.main-container {
+
+}
+
+.profile-form {
+  input, select {
   width: 400px;
   padding: 5px 10px;
   margin: 4px 0;
@@ -143,6 +152,14 @@ input[type=text], [type=email], [type=password], [type=month], select {
   box-sizing: border-box;
   cursor: pointer;
 }
+}
+
+.form-block {
+  display: block;
+  margin: 15px;
+}
+
+
 button, select {
   width: 200px;
   border: none;
@@ -156,10 +173,3 @@ button, select {
 button:hover {
     background-color: @blue;
 }
-
-#form {
-  input {
-    width: 100px
-  }
-}
-

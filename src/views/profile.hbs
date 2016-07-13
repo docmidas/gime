@@ -5,21 +5,20 @@
   <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 <body>
-  <header>
+  <header class="header-container">
     <div class="row">
       <div class="col-12"> 
+        <img src="https://i.kinja-img.com/gawker-media/image/upload/zec3un8rzcmblrdlyswb.JPG">
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris dolor sem, posuere et ante a, tincidunt mattis mauris. Vestibulum ac ipsum sed odio pulvinar semper. Morbi pellentesque, nibh eget feugiat tincidunt, ipsum neque cursus massa, eu commodo massa ipsum vitae nulla. Suspendisse congue facilisis tellus vitae pretium. Donec pulvinar, lectus ut dapibus consectetur, libero diam porta arcu, vitae aliquet lectus odio id ante. Nullam gravida orci accumsan, sagittis nisl nec, suscipit diam. Vestibulum et augue elit. Sed a enim et nisl dapibus sollicitudin. Nullam viverra ullamcorper lorem sit amet rhoncus.</p>
       </div>
     </div>
   </header>
   
-  <main class="container">
+  <main class="main-container">
     <div class="row">
-      <div class="col-2">
-        <p>hello</p>
-      </div>
-      <div class="col-8">
-        <img src="https://i.kinja-img.com/gawker-media/image/upload/zec3un8rzcmblrdlyswb.JPG">
-        <form method="post" action="/membersonly/profile" accept-charset="utf-8">
+      <div class="col-12">
+        <h3>Create New Gime</h3>
+        <form name="profile-form" method="post" action="/membersonly/profile" accept-charset="utf-8">
           <label for="name">Category</label>
           <select name="category" required />
           <option value=""></option>
@@ -40,13 +39,12 @@
           <input type="text" name="itemname" placeholder="Item Name" required />
           <br />
           <input type="text" name="description" placeholder="Description" />
+          <br />
           <input type="number" name="price" placeholder="Estimated Price">
           <br />
           <button>Create</button>
         </form> 
      </div>
-     <div class="col-2"></div>
-    </div> 
   </main>
 
   {{#each gift}}
