@@ -6,7 +6,9 @@
 body {
   background-image: url(https://images.unsplash.com/photo-1453834190665-46ff0a1fbd5a?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&s=f1740ea71cff1e64b7c079cb9842ac0f);
   background-size: 1000px;
+  margin-top: 75px;
 }
+
 
 form {
   text-align: center;
@@ -22,12 +24,15 @@ footer {
 p{
   text-align: left;
 }
-.category{
-  color: black;
-}
 
-.images {
-  display: inline-block;
+img {
+  float: left;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+
+  shape-outside: circle();
+  shape-margin: 15px;
 }
 
 .gift-image {
@@ -111,6 +116,18 @@ li a:hover {
   background-color: @red;
 }
 
+.col-2{
+  width: 100%;
+  float: left;
+  border: 1px solid blue;
+}
+
+.col-8 {
+  width: 100%;
+  float: left;
+  border: 1px solid blue;
+}
+
 .form-block {
   display: block;
   margin: 15px;
@@ -119,7 +136,7 @@ li a:hover {
 input[type=text], [type=email], [type=password], [type=month], select {
   width: 400px;
   padding: 5px 10px;
-  margin: 8px 0;
+  margin: 4px 0;
   display: inline-block;
   border: 1px solid #ccc;
   border-radius: 4px;
@@ -138,5 +155,11 @@ button, select {
 
 button:hover {
     background-color: @blue;
+}
+
+#form {
+  input {
+    width: 100px
+  }
 }
 
