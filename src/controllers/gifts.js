@@ -10,22 +10,81 @@ var express   = require('express'),
                       category: "clothes",
                       imgUrl: "http://theshoegame.com/wp-content/uploads/2012/02/Air-Jordan-VI6-Freddy-Kruger-Customs-04.jpg",
                       description: "want these for Halloween. size 10",
-                      price: 250
+                      price: 250,
+                      gimeStatus: "want"
                     },
                     { userId: "57851a10c810f1c74f6485ce",
-                      name: "kids tablet",
+                      name: "sheng's kids tablet",
                       category: "computer",
                       imgUrl: "https://images-na.ssl-images-amazon.com/images/I/71ePnCmB%2BkL._SL1000_.jpg",
                       description: "1 blue and 1 pink... maybe",
-                      price: 100
+                      price: 100,
+                      gimeStatus: "want"
                     },
                     { userId: "57851085d518556f4f06ec79",
                       name: "jaxx kids tablet",
                       category: "computer",
                       imgUrl: "https://images-na.ssl-images-amazon.com/images/I/71ePnCmB%2BkL._SL1000_.jpg",
                       description: "1 blue and 1 pink... maybe",
-                      price: 100
-                    } ];   
+                      price: 100,
+                      gimeStatus: "want"
+                    },
+                    { userId: "57851085d518556f4f06ec79",
+                      name: "jaxx kids tablet",
+                      category: "computer",
+                      imgUrl: "https://images-na.ssl-images-amazon.com/images/I/71ePnCmB%2BkL._SL1000_.jpg",
+                      description: "1 blue and 1 pink... maybe",
+                      price: 100,
+                      gimeStatus: "want"
+                    },
+                    { userId: "578578d30e484a5f548eab14",
+                      name: "subzeros ice cream",
+                      category: "computer",
+                      imgUrl: "http://pngimg.com/upload/ice_cream_PNG5101.png",
+                      description: "all sorts of flavors",
+                      price: 100,
+                      gimeStatus: "want"
+                    },
+                    { userId: "578578d30e484a5f548eab14",
+                      name: "subzeros other ice cream",
+                      category: "food",
+                      imgUrl: "http://7-themes.com/data_images/out/31/6876711-ice-cream-wallpaper.jpg",
+                      description: "not ben n jerry's but its still so cool",
+                      price: 5,
+                      gimeStatus: "want"
+                    },
+                    { userId: "57857bb3d8bb806f54c75e7d",
+                      name: "reptile's pet lizard",
+                      category: "home",
+                      imgUrl: "https://filmfork-cdn.s3.amazonaws.com/content/Godzilla%20-%209.gif",
+                      description: "large and in charge",
+                      price: 250,
+                      gimeStatus: "want"
+                    },
+                    { userId: "57857bb3d8bb806f54c75e7d",
+                      name: "reptiles anaconda mpvie",
+                      category: "media",
+                      imgUrl: "http://3.bp.blogspot.com/-7twzh3U2lek/UDTA3kTCqGI/AAAAAAAAB1U/LSqJbhC6VRo/s1600/Anaconda%2B%25281997%2529.jpg",
+                      description: "mmm jLo",
+                      price: 25,
+                      gimeStatus: "want"
+                    },
+                    { userId: "57851a6c4e6a63cc4f50e862",
+                      name: "point tool",
+                      category: "computer",
+                      imgUrl: "http://static1.squarespace.com/static/50f2d3e5e4b07e77c466e869/t/52fcd065e4b003139ba7ea76/1392300134827/1111.IMG_8701.jpg",
+                      description: "sure sharp",
+                      price: 400,
+                      gimeStatus: "want"
+                    } ,
+                    { userId: "57851a6c4e6a63cc4f50e862",
+                      name: "points pyramid",
+                      category: "computer",
+                      imgUrl: "https://i.ytimg.com/vi/lotbZQ55SgU/maxresdefault.jpg",
+                      description: "ultimate point",
+                      price: 1000000,
+                      gimeStatus: "want"
+                    }      ];   
 
  //Mongoose
  Gifts.route('/:id/?')

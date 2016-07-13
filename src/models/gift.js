@@ -8,7 +8,7 @@ var GiftSchema = new mongoose.Schema({
   category: String,
   imgUrl: String,
   description: String,
-  gimeStatus: Boolean,
+  gimeStatus: String,
   price: Number
   //privacy: Boolean
 

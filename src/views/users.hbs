@@ -1,9 +1,9 @@
 <h1>User List</h1>
-<ul>
+
   {{#each user}}
-    <li> 
+    <div> 
       {{this.username}} <a href="/users/{{@index}}">MoreInfo</a><br />
       {{this.email}} 
-    </li>
+    </div>
   {{/each}}
-</ul>
+

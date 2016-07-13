@@ -50,7 +50,19 @@ SignupController.route('/?')
           console.log(err);
           res.render('home', {error: err});
         } else {
-          res.redirect('users'); //should be usersonly
+          req.session.isLoggedIn  = true;
+          req.session.userId      = user._id;
+          //res.redirect('/membersonly');
+
+          User.find(function(err, users) { //first thing is Error and second thing is all gifts within user database
+            console.log(users);  //           
+            //res.json(gifts);
+            res.render('users', {user: users} ); //should be usersonly;
+            
+          })
+
+
+          
         }
       });
     });

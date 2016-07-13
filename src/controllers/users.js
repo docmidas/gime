@@ -4,14 +4,7 @@ var express   = require('express'),
     mongoose  = require('mongoose'),
     User   = require('../models/user');
 
- var roster = [{username: "kitana",
-                      password: "dbp",
-                      email: "fanmail@mk.com"
-                    },
-                    {username: "baraka",
-                      password: "bbbp",
-                      email: "blades@mk.com"
-                    }];   
+ var roster = []; 
 
  //Mongoose
  Users.route('/:id/?')
@@ -22,8 +15,8 @@ var express   = require('express'),
   .patch(function(req, res, next) {
     var id = req.params.id;
     User.findByIdAndUpdate(id, { username: "jaxx", password: "ffp", email: "gotcha@mk.com"}, function (err, task) {
-  console.log(task);
-});
+      console.log(task);
+    });
     res.json({message: "Updated todo at " + req.params.id});
   })
   .delete(function(req, res, next) {
