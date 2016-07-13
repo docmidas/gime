@@ -113,17 +113,6 @@ li a:hover {
 .header-container {
   margin-top: 75px;
 }
-.profile-form input,
-.profile-form select {
-  width: 400px;
-  padding: 5px 10px;
-  margin: 4px 0;
-  display: inline-block;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  box-sizing: border-box;
-  cursor: pointer;
-}
 .form-block {
   display: block;
   margin: 15px;
