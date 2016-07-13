@@ -8,14 +8,21 @@
   <header class="container clearfix">
     <div class="row">
       <div class="col-12"> 
-        <h1>{{pageTitle}}</h1>
+        <h2>Profile</h2>
+        <div contentEditable="true">
+          <form>
+            <textarea>Some text...</textarea>
+          </form>
+        </div>
       </div>
     </div>
   </header>
   
   <main>
     <form method="post" action="/" accept-charset="utf-8">
+      <label for="name">Category</label>
       <select name="Category" required />
+      <option value=""></option>
       <option value="artsandcrafts">Arts and Crafts</option>
       <option value="auto">Auto</option>
       <option value="beauty">Beauty</option>
@@ -28,6 +35,8 @@
       <option value="sports">Sports</option> 
       </select>
       <br><br>
+      <input type="image" name="picture" placeholder="Type Image url">
+      <br />
       <input type="text" name="itemname" placeholder="Item Name" required />
       <br />
       <input type="text" name="description" placeholder="Description" />
