@@ -85,7 +85,7 @@ var express   = require('express'),
                       price: 1000000,
                       gimeStatus: "want"
                     }      ];   
-
+/////mebersonly/gifts 
  //Mongoose
  Gifts.route('/:id/?')
   .get(function(req, res, next) {
@@ -121,7 +121,7 @@ Gifts.route('/?')
   ///////FOR ADDING GIFTS
   .post(function(req, res) {
     Gift.create( {
-      //userId: req.body.username, ///// GRAB USER ID FROM SESSION
+      userId: req.session.userId, ///// GRAB USER ID FROM SESSION
       name: req.body.itemname,
       category: req.body.category,
       imgUrl: req.body.picture,
@@ -130,7 +130,8 @@ Gifts.route('/?')
       price: req.body.price
     }, function(err, gifts) {
       console.log(gifts);
-      res.json(gifts);
+      //res.json(gifts);
+      res.redirect('/membersonly/gifts');
     });
   });  
   /////////END OF ACTUAL POSTING GIFTS
