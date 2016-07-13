@@ -118,12 +118,30 @@ Gifts.route('/?')
       //res.render('form');
     })
   })
+  ///////FOR ADDING GIFTS
   .post(function(req, res) {
-    // User.create(req.body, function(err, gifts) {
-    Gift.create(testGifts, function(err, gifts) {
+    Gift.create( {
+      //userId: req.body.username, ///// GRAB USER ID FROM SESSION
+      name: req.body.itemname,
+      category: req.body.category,
+      imgUrl: req.body.picture,
+      description: req.body.description,
+      gimeStatus: "gime",
+      price: req.body.price
+    }, function(err, gifts) {
       console.log(gifts);
       res.json(gifts);
     });
   });  
+  /////////END OF ACTUAL POSTING GIFTS
+  ///////FOR TESTING TO LOAD ALL GIFTS
+  // .post(function(req, res) {
+  //   // User.create(req.body, function(err, gifts) {
+  //   Gift.create(testGifts, function(err, gifts) {
+  //     console.log(gifts);
+  //     res.json(gifts);
+  //   });
+  // });  
+  /////////END OF TESTING POST METHOD
 
 module.exports = Gifts;

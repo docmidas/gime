@@ -32,9 +32,9 @@ require('./config/db');
 //
 //Mount Middleware
 app.use('/membersonly/users/?', require('./controllers/users'));
-app.use('/gifts/?', require('./controllers/gifts'));
-app.use('/signup/?', require('./controllers/signup'));
-app.use('/profile/?', require('./controllers/profiles'));
+app.use('/membersonly/gifts/?', require('./controllers/gifts'));
+//app.use('/signup/?', require('./controllers/signup'));
+//app.use('/membersonly/profile/?', require('./controllers/profiles'));
 app.use(require('./controllers/home'));
 //==========|||
 //==========||| SESSIONS

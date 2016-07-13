@@ -6,6 +6,36 @@ var express   = require('express'),
 
  var roster = []; 
 
+//SUCCESFUL LOGIN OR SIGN UP LEADS HERE
+ Users.route('/myprofile/?')
+  .get(function(req, res, next) {
+    console.log();    
+    res.render('profile', {});
+  })
+  .patch(function(req, res, next) {
+    var id = req.params.id;
+    User.findByIdAndUpdate(id, { username: "jaxx", password: "ffp", email: "gotcha@mk.com"}, function (err, task) {
+      console.log(task);
+    });
+    res.json({message: "Updated todo at " + req.params.id});
+  })
+  .delete(function(req, res, next) {
+    var id = req.params.id;
+    User.findByIdAndRemove(id, function(err, task) {
+        console.log("Deleted:");
+        console.log(task);
+      });
+    res.json({message: "Deleted entry at " + req.params.id});
+  })
+
+
+
+
+
+
+
+
+
  //Mongoose
  Users.route('/:id/?')
   .get(function(req, res, next) {

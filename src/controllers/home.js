@@ -15,11 +15,55 @@ HomeController.route('/usersonly/?')
   .get(function(req, res, next) {
     res.render('signup', {});
   });
+  /////////==========================
+HomeController.route('/signup/?')
+// GET /
+// -----
+// Serve the homepage
+.get(function(req, res, next) {
+  res.render('signup', {});
+})
+// POST /
+// ------
+// Register a new user
+.post(function(req, res, next) {
+  ////DEX, ensure unique username and email here!!!!!
+  bcrypt.hash(req.body.password, 10, function(err, hash) {
+    // Save user inside here
+    User.create({
+      username: req.body.username,
+      password: hash,
+      email: req.body.email,
+      firstName: req.body.firstname,
+      lastName: req.body.lastname,
+      location: req.bodylocation,
+      bdaymonth: req.body.bdaymonth,
+      gender: req.body.gender
+    }, function(err, user) {
+      if (err) {
+        console.log(err);
+        res.render('home', {error: err});
+      } else {
+        req.session.isLoggedIn  = true;
+        //req.session.userId      = user._id;
+        res.redirect('/membersonly/users/myprofile');
 
 
+        ////This should be for USER DIRECTORY
+        // User.find(function(err, users) { //first thing is Error and second thing is all gifts within user database
+        //   console.log(users);  //           
+        //   //res.json(gifts);
+        //   res.render('users', {user: users} ); //should be usersonly;          
+        // }) 
+        //////////////// end USER DIRECTORY         
+      }
+    });
+  });
+});
+////////=======================
 HomeController.route('/?')
   // GET /
-  // Serve the homepage
+  // Serve the homepage and LOGIN Prompt
   .get(function(req, res, next) {
     res.render('login', {});
   })
@@ -40,6 +84,7 @@ HomeController.route('/?')
             User.findById(user._id, function (err, task) {
               console.log(user._id + "  " + user.firstName);
               console.log("==================");
+              ///GRAB GIFT ENTRIES ASSOCIATED WITH THIS USER ONLY
               Gift.find(function(err, giftList) {
                 var usersGifts = [];
                 for(var gi = 0; gi < giftList.length; gi++) {
@@ -47,7 +92,10 @@ HomeController.route('/?')
                     usersGifts.push(giftList[gi]);                    
                   }
                 }
-                console.log(usersGifts);
+                //console.log(usersGifts); // TEST LINE TO CHECK USER's Giftlist
+                req.session.isLoggedIn  = true;
+                req.session.userId      = user._id;
+                console.log("isLoggedIn:" + req.session.isLoggedIn + " UserId:" +  req.session.userId );
                 res.render('profile', {username: user.username, gift: usersGifts});  
               });
             });

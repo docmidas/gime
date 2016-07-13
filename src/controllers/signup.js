@@ -44,7 +44,6 @@ SignupController.route('/?')
         location: req.bodylocation,
         bdaymonth: req.body.bdaymonth,
         gender: req.body.gender
-
       }, function(err, user) {
         if (err) {
           console.log(err);
