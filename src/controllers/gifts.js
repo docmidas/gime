@@ -22,7 +22,7 @@ Gifts.route('/?')
   .get(function(req, res) {
     Gift.find(function(err, gifts) { //Find ALL gifts within database
       console.log(gifts);
-      res.render('gifts', {gift: gifts});
+      res.render('gifts', {gift: gifts, isLoggedIn: req.session.isLoggedIn ? true : false});
     })
   })
   ///////FOR ADDING GIFTS

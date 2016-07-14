@@ -1,24 +1,22 @@
 <!DOCTYPE html>
 <html>
 	<head>
-  	<title>{{{pageTitle}}}</title>
+  	<title>{{pageTitle}}</title>
   	<link rel="stylesheet" type="text/css" href="/css/style.css">
 	</head>
 
 	<header>
-    <div class="viewables">
+    <div>
 		  <ul>
-  			<li><a class="active"></a></li>
-        <li><a href="/signout">SIGN OUT</a></li>
+      {{#if isLoggedIn}}
+        <li><a href="/signout">SIGN OUT</a></li>        
   			<li><a href="/membersonly/gifts">Gime Wishes</a></li>
   			<li><a href="/membersonly/users">Search</a></li>
   			<li><a href="/membersonly/users/myprofile">Profile</a></li>
-        <li><a href="/">Home</a></li>
+      {{/if}}
 		  </ul>
     </div>
 	</header>
-
 <body>
 
-</body>
-</html>
+

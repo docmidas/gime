@@ -9,19 +9,14 @@ var express         = require('express'),
     Gift            = require(__dirname + '/../models/gift');
 
 
-HomeController.route('/usersonly/?')
-// GET /usersonly/
-// The page you see after registration
-  .get(function(req, res, next) {
-    res.render('signup', {});
-  });
-  /////////==========================
+
+/////////==========================
 HomeController.route('/signup/?')
 // GET /
 // -----
 // Serve the homepage
 .get(function(req, res, next) {
-  res.render('signup', {});
+  res.render('signup', {isLoggedIn: req.session.isLoggedIn ? true : false});
 })
 // POST /
 // ------
@@ -34,9 +29,8 @@ HomeController.route('/signup/?')
   var emailCheck = false;  
   req.body.username = req.body.username.toLowerCase();
   req.body.email = req.body.email.toLowerCase();
-  console.log("THIS IS THE ATTEMPTED UN: " + req.body.username);
-  console.log("THIS IS THE ATTEMPTED EMAIL: " + req.body.email);
-  
+  // console.log("THIS IS THE ATTEMPTED UN: " + req.body.username);
+  // console.log("THIS IS THE ATTEMPTED EMAIL: " + req.body.email);  
   User.findOne({username: req.body.username}, function(error, username) {
       if (username || req.body.username == "myprofile") { //prevents trolls from ruining myprofile page
         unique = false;
@@ -54,7 +48,7 @@ HomeController.route('/signup/?')
   setTimeout(function() {  
   if(unique === false){
     console.log(message);
-    res.render('signup', {message: message}); 
+    res.render('signup', {message: message, isLoggedIn: req.session.isLoggedIn ? true : false}); 
   }else{
       bcrypt.hash(req.body.password, 10, function(err, hash) {
     // Save user inside here
@@ -70,7 +64,7 @@ HomeController.route('/signup/?')
     }, function(err, user) {
       if (err) {
         console.log(err);
-        res.render('home', {error: err});
+        res.render('home', {error: err, isLoggedIn: req.session.isLoggedIn ? true : false});
       } else {
         req.session.isLoggedIn  = true;
         req.session.userId      = user._id;
@@ -97,7 +91,9 @@ HomeController.route('/?')
   // GET /
   // Serve the homepage and LOGIN Prompt
   .get(function(req, res, next) {
-    res.render('login', {});
+    res.render('login', {
+      isLoggedIn: req.session.isLoggedIn ? true : false
+    });
   })
   // POST /
   // ------
@@ -112,36 +108,16 @@ HomeController.route('/?')
           if (err) {
             res.send('ERROR: ' + err);
           } else if (result) {
-            // res.redirect('/users');
-            //res.redirect('/profile', {userId: req.body._id});
-            User.findById(user._id, function (err, task) {
-              console.log(user._id + "  " + user.firstName);
-              console.log("==================");
-              ///GRAB GIFT ENTRIES ASSOCIATED WITH THIS USER ONLY
-              Gift.find(function(err, giftList) {
-                var usersGifts = [];
-                for(var gi = 0; gi < giftList.length; gi++) {
-                  if(giftList[gi].userId == user._id) {
-                    usersGifts.push(giftList[gi]);                    
-                  }
-                }
-                //console.log(usersGifts); // TEST LINE TO CHECK USER's Giftlist
-                req.session.isLoggedIn  = true;
+            req.session.isLoggedIn  = true;
                 req.session.userId      = user._id;
-                console.log("isLoggedIn:" + req.session.isLoggedIn + " UserId:" +  req.session.userId );
-                res.render('profile', {username: user.username, gift: usersGifts});  
-              });
-            });
-//////////
-            //res.redirect('/profile', {userId: user._id});            
+              res.redirect('/membersonly/users/myprofile');        
           } else {
-            res.send('Wrong password!')
+            //res.send('Wrong password!');
+            res.render('login', {message: "Wrong Password", isLoggedIn: req.session.isLoggedIn ? true : false});
           }
         })
       }
     })
   });
-
-
 
 module.exports = HomeController;

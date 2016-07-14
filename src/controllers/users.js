@@ -24,7 +24,7 @@ var express   = require('express'),
     // setTimeout(function() { 
     //   res.render('profile', {gift: usersGifts });
     // }, 6000);
-    res.render('profile', {gift: usersGifts });
+    res.render('profile', {gift: usersGifts, isLoggedIn: req.session.isLoggedIn ? true : false });
 
   })
   .patch(function(req, res, next) {
@@ -64,7 +64,7 @@ var express   = require('express'),
                   usersGifts.push(giftList[gi]);                    
                 }
               }
-              res.render('othersprofile', {username: reqUsername, gift: usersGifts});  
+              res.render('othersprofile', {username: reqUsername, gift: usersGifts, isLoggedIn: req.session.isLoggedIn ? true : false});  
             }
           );
         //////
@@ -122,7 +122,7 @@ Users.route('/?')
       console.log(users);  
       //console.log(err);
       //res.json(users); 
-      res.render('users', {user: users});     
+      res.render('users', {user: users, isLoggedIn: req.session.isLoggedIn ? true : false});     
     })
   })
   .post(function(req, res) {

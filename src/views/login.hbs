@@ -1,5 +1,9 @@
-<h1>Welcome, log in!</h1>
 {{message}}
+{{#unless isLoggedIn}}
+<h1>Welcome, log in!</h1>
+
+
+
 
 <form action="/" accept-charset="utf-8" method="post" >
    <label class="form-block">
@@ -15,5 +19,6 @@
 </form>
 
 Dont have an account?<a href="/signup">Sign Up</a>
+{{/unless}}
 
 
