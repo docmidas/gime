@@ -42,13 +42,40 @@ var express   = require('express'),
       });
     res.json({message: "Deleted entry at " + req.params.id});
   });
-
-
- //Mongoose
- Users.route('/:id/?')
+////////////
+////!!!!NEW==Route: root/membersonly/users/:id
+ Users.route('/:username/?')
   .get(function(req, res, next) {
-    res.json({
-        message: "you asked for " + req.params.id});
+    var reqUsername = req.params.username;
+    console.log("this is username requested: " + reqUsername);
+    
+
+    User.findOne({username: reqUsername}, function(error, user) {
+      if (!user) {
+        res.json({message: reqUsername + " does not exist"});
+      } else {
+        //res.json({message: reqUsername + " EXISTS!!!!"});
+        var reqUserId = user._id;
+        ///
+          Gift.find(function(err, giftList) {
+              var usersGifts = [];
+              for(var gi = 0; gi < giftList.length; gi++) {
+                if(giftList[gi].userId == reqUserId) {
+                  usersGifts.push(giftList[gi]);                    
+                }
+              }
+              res.render('othersprofile', {username: reqUsername, gift: usersGifts});  
+            }
+          );
+        //////
+        //render('profile', {gift: gifts});
+      }
+    });
+
+    // Gift.findByIdAndRemove(id, function(err, gift) {
+    //     res.json({message: "Tried to get to " + req.params.id});
+    //   });   
+
   })
   .patch(function(req, res, next) {
     var id = req.params.id;
@@ -65,7 +92,30 @@ var express   = require('express'),
       });
     res.json({message: "Deleted entry at " + req.params.id});
   })
-
+//////////
+////OLD==Route: root/membersonly/users/:id
+ // Users.route('/:id/?')
+ //  .get(function(req, res, next) {
+ //    res.json({
+ //        message: "you asked for " + req.params.id});
+ //  })
+ //  .patch(function(req, res, next) {
+ //    var id = req.params.id;
+ //    User.findByIdAndUpdate(id, { username: "jaxx", password: "ffp", email: "gotcha@mk.com"}, function (err, task) {
+ //      console.log(task);
+ //    });
+ //    res.json({message: "Updated todo at " + req.params.id});
+ //  })
+ //  .delete(function(req, res, next) {
+ //    var id = req.params.id;
+ //    User.findByIdAndRemove(id, function(err, task) {
+ //        console.log("Deleted:");
+ //        console.log(task);
+ //      });
+ //    res.json({message: "Deleted entry at " + req.params.id});
+ //  })
+/////////////////////
+////==Route: root/membersonly/users
 Users.route('/?')
   .get(function(req, res) {
     User.find(function(err, users) { //first thing is Error and second thing is all users within user database

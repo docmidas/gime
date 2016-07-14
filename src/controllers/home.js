@@ -31,12 +31,14 @@ HomeController.route('/signup/?')
   var unique = true;
   var message = "";
   var usernameCheck = false;
-  var emailCheck = false;
+  var emailCheck = false;  
+  req.body.username = req.body.username.toLowerCase();
+  req.body.email = req.body.email.toLowerCase();
   console.log("THIS IS THE ATTEMPTED UN: " + req.body.username);
   console.log("THIS IS THE ATTEMPTED EMAIL: " + req.body.email);
   
   User.findOne({username: req.body.username}, function(error, username) {
-      if (username) {
+      if (username || req.body.username == "myprofile") { //prevents trolls from ruining myprofile page
         unique = false;
         message = "Please retry: USERNAME is already taken";
       }
@@ -101,6 +103,7 @@ HomeController.route('/?')
   // ------
   // Login User
   .post(function(req, res, next) {
+    req.body.username = req.body.username.toLowerCase();
     User.findOne({username: req.body.username}, function(error, user) {
       if (error || !user) {
         res.send('Could not find user');
