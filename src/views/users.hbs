@@ -2,9 +2,9 @@
 
   {{#each user}}
     <div> 
-      {{this.username}} <a href="/users/{{@index}}">MoreInfo</a><br />
+      {{this.username}} <a href="/membersonly/users/{{@index}}">MoreInfo</a><br />
       {{this.email}}
-      {{this._id}}
+      {{this._id}}<a href="/membersonly/users/{{this.username}}">MoreInfo</a><br />
     </div>
   {{/each}}
 
