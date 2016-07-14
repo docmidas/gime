@@ -3,9 +3,9 @@ var express   = require('express'),
     fs        = require('fs'),
     mongoose  = require('mongoose'),
     Gift   = require('../models/gift');
-/////
+//////////////////////
 ////////////ROUTES
- /////membersonly/gifts/:id
+/////membersonly/gifts/:id
  Gifts.route('/:id/?')
   .get(function(req, res, next) {
     res.json({
@@ -40,7 +40,7 @@ Gifts.route('/?')
     });
   });  
   /////////END OF ACTUAL POSTING GIFTS
-  ///////FOR TESTING TO LOAD TEST GIFTS
+  ///////FOR LOADING TEST ENTRIES 
    // var testGifts = [{
    //                  userId: "57851a10c810f1c74f6485ce",
    //                  name: "sheng freddy nikes",
