@@ -34,11 +34,9 @@ HomeController.route('/signup/?')
   var emailCheck = false;
   console.log("THIS IS THE ATTEMPTED UN: " + req.body.username);
   console.log("THIS IS THE ATTEMPTED EMAIL: " + req.body.email);
-
   
   User.findOne({username: req.body.username}, function(error, username) {
       if (username) {
-        console.log('if happeneddddddddd')
         unique = false;
         message = "Please retry: USERNAME is already taken";
       }
@@ -74,14 +72,24 @@ HomeController.route('/signup/?')
       } else {
         req.session.isLoggedIn  = true;
         req.session.userId      = user._id;
+        console.log("Session USER ID HAS BEEN SET: " + req.session.userId );
         res.redirect('/membersonly/users/myprofile');      
       }
     });
   });
   }//end of unique check
 }, 6000);
-
 });
+////////=======================
+//SIGN OUT!!!//
+HomeController.route("/signout/?")
+  .get(function(req, res, next) {
+    req.session.isLoggedIn  = false;
+    req.session.userId      = null;
+    console.log("SIGNED OUT /n req.session.userId: " + req.session.userId + "/n req.session.isLoggedIn: " + req.session.isLoggedIn);
+    res.redirect("/");
+  });
+
 ////////=======================
 HomeController.route('/?')
   // GET /
