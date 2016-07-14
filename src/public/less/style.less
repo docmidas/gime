@@ -4,7 +4,6 @@
 @pink:      #EEB4C0;
 @black:     #000000;
 
-
 html, body {
   background-image:      url(http://pixel.brit.co/wp-content/uploads/2015/02/1-Gift-Wrap-Main.jpg);
   background-size:       100%;
@@ -41,7 +40,7 @@ form {
     border-radius: 4px;
     border:   1px solid @black;
     box-sizing:    border-box;
-    display:  inline-block;
+    display:  inline-block; 
   }
 }
 
@@ -61,41 +60,40 @@ img {
 }
 
 h1 {
-  color: @black; 
-	text-align: center;
-  font-family: sans-serif;
-  font-size: 48px;
   padding-top: 20px;
+  font-size:   48px;
+  font-family: sans-serif;
+  text-align:  center;
+  color:       @black; 
 }
 
 h2 { 
-  color: @black; 
-  text-align: center;
-  font-family: sans-serif;
-  font-size: 42px;
   padding-top: 20px;
-}
+  font-size:   42px;
+  font-family: sans-serif;
+  text-align:  center;
+  color:       @black; 
+  
 
-h3  {
-  color: @black;
-  text-align: center;
 }
 
 header {
+  color:      @grey;
   text-align: center;
-  color:  @grey; 
+ 
 }
 
 ul { 
+  left:     0;
+  top:      0;
+  margin:   0;
+  padding:  0;
+  width:    100%;
   list-style-type: none;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
+  overflow:        hidden;
+  position:        fixed;
   background-color: @blue;
-  position: fixed;
-  left: 0;
-  top: 0;
-  width: 100%;
+  
 }
 
 li {
@@ -103,10 +101,10 @@ li {
 }
 
 li a {
-  display: block;
-  color: white;
-  text-align: center;
-  padding: 14px 16px;
+  padding:         14px 16px;
+  display:         block;
+  color:           white;
+  text-align:      center;
   text-decoration: none;
 }
 
@@ -115,10 +113,10 @@ li a:hover {
 }
 
 .col-12{
-  width: 100%;
-  float: left;
+  float:      left;
+  width:      100%;
   margin-top: 10px;
-  border: 4px solid @blue;
+  border: 2px solid @blue;
 }
 
 .header-container  {
@@ -127,7 +125,7 @@ li a:hover {
 
 .form-block {
   display: block;
-  margin: 15px;
+  margin:  15px;
 }
 
 // .site-footer {
