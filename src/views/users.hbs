@@ -1,10 +1,11 @@
 <h1>User List</h1>
+<h3>This is h3</h3>
+
 
   {{#each user}}
-    <div> 
-      {{this.username}} <a href="/membersonly/users/{{@index}}">MoreInfo</a><br />
-      {{this.email}}
-      {{this._id}}<a href="/membersonly/users/{{this.username}}">MoreInfo</a><br />
-    </div>
+    <h3> 
+      <a href="/membersonly/users/{{this.username}}">{{this.username}}</a>
+      
+    </h3>
   {{/each}}
 
