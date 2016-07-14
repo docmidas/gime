@@ -8,7 +8,7 @@
   <header class="header-container">
     <div class="row">
       <div class="col-12"> 
-        <img src="https://i.kinja-img.com/gawker-media/image/upload/zec3un8rzcmblrdlyswb.JPG">
+        <img src="https://scontent-mia1-1.xx.fbcdn.net/v/t1.0-9/12524112_10103231045261499_3498899140915922885_n.jpg?oh=46da281501b4ff80876f5e1f5f079d78&oe=5823F3EF">
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris dolor sem, posuere et ante a, tincidunt mattis mauris. Vestibulum ac ipsum sed odio pulvinar semper. Morbi pellentesque, nibh eget feugiat tincidunt, ipsum neque cursus massa, eu commodo massa ipsum vitae nulla. Suspendisse congue facilisis tellus vitae pretium. Donec pulvinar, lectus ut dapibus consectetur, libero diam porta arcu, vitae aliquet lectus odio id ante. Nullam gravida orci accumsan, sagittis nisl nec, suscipit diam. Vestibulum et augue elit. Sed a enim et nisl dapibus sollicitudin. Nullam viverra ullamcorper lorem sit amet rhoncus.
 
         Pellentesque porttitor pulvinar diam sed tempus. Suspendisse id auctor lectus, et rutrum enim. Cras mattis dolor mauris, ac tempus leo convallis vel. Donec accumsan, est ac varius faucibus, risus lectus faucibus eros, quis consequat sapien odio interdum augue. In accumsan aliquet sapien, a faucibus lacus bibendum sit amet. Nunc nulla velit, posuere id accumsan sit amet, faucibus non ante. In hac habitasse platea dictumst. Proin ullamcorper mi a mi hendrerit eleifend. Quisque tempor vitae turpis in sodales. Pellentesque ac posuere sapien. Etiam imperdiet ipsum ut quam placerat varius.</p>
@@ -46,25 +46,23 @@
           <br />
           <button>Create</button>
         </form> 
-     </div>
-  </main>
-
-  {{#each gift}}
-    <p> 
+        {{#each gift}}
       <div class="image">
-        <img class="gift-image" src="{{this.imgUrl}}"><br />
+        <img class="gift-image" src="{{this.imgUrl}}">
       </div> 
       <div> 
         {{this.name}} <a href="/users/{{@index}}">MoreInfo</a><br />
-        {{this.userId}}<br />
-        {{this.description}}<br />
+        <!-- {{this.userId}}<br /> -->
         {{this.category}}<br />
+        {{this.description}}<br />
         {{this.price}}<br />
       </div>
+      {{/each}}
+     </div>
 
-    </p>
-  {{/each}}
+      
 
+  </main>
 
 </body>
 </html>

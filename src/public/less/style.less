@@ -6,9 +6,9 @@
 
 
 body {
-  background-image: url(https://images.unsplash.com/photo-1453834190665-46ff0a1fbd5a?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&s=f1740ea71cff1e64b7c079cb9842ac0f);
-  background-size: 100%;
- background-attachment: fixed;
+  background-image:      url(http://pixel.brit.co/wp-content/uploads/2015/02/1-Gift-Wrap-Main.jpg);
+  background-size:       100%;
+  background-attachment: fixed;
 }
 
 form {
@@ -20,7 +20,7 @@ form {
     padding: 5px 10px;
     margin: 4px 0;
     display: inline-block;
-    border: 1px solid #ccc;
+    border: 1px solid @black;
     border-radius: 4px;
     box-sizing: border-box;
   }
@@ -30,7 +30,7 @@ form {
 button, select {
   width: 200px;
   border: none;
-  color: white;
+  color: @black;
   padding: 16px 32px;
   text-decoration: none;
   margin: 4px 2px;
@@ -41,13 +41,9 @@ button:hover {
     background-color: @blue;
 }
 
-footer {
-  text-align: left;
-  color: @grey;
-}
-
 p{
   text-align: left;
+  color: @black;
 }
 
 img {
@@ -72,7 +68,7 @@ img {
 }
 
 h1 {
-  color: @pink; 
+  color: @black; 
 	text-align: center;
   font-family: sans-serif;
   font-size: 48px;
@@ -80,7 +76,7 @@ h1 {
 }
 
 h2 {
-  color: @pink; 
+  color: @black; 
   text-align: left;
   font-family: sans-serif;
   font-size: 42px;
@@ -88,7 +84,7 @@ h2 {
 }
 
 h3  {
-  color: @lightBlue;
+  color: @black;
   text-align: center;
 }
 
@@ -122,56 +118,22 @@ li a {
 }
 
 li a:hover {
-  background-color: @pink;
+  background-color: @grey;
 }
-
-.col-2{
-  width: 100%;
-  float: left;
-  border: 1px solid blue;
-}
-
 
 .col-12{
   width: 100%;
   float: left;
   margin-top: 10px;
-  border: 1px solid blue;
-}
-
-
-.col-8 {
-  width: 100%;
-  float: left;
-  border: 1px solid blue;
+  border: 1px solid @blue;
 }
 
 .header-container  {
   margin-top: 75px
 }
 
-.main-container {
-
-}
-
-
-
 .form-block {
   display: block;
   margin: 15px;
 }
 
-
-button, select {
-  width: 200px;
-  border: none;
-  color: white;
-  padding: 16px 32px;
-  text-decoration: none;
-  margin: 4px 2px;
-  cursor: pointer;
-}
-
-button:hover {
-    background-color: @blue;
-}
