@@ -12,7 +12,7 @@ app.engine('hbs', exphbs({
   partialsDir: __dirname + '/views/partials/',
   layoutsDir: __dirname + '/views/layouts/',
   extname: '.hbs'
-})) /////ZZZ last semicolon go here?
+})); /////ZZZ last semicolon go here?
 
 app.set('view engine', 'hbs'); //initiate view engine
 app.set('views', __dirname + '/views'); //Set view directory
@@ -31,6 +31,15 @@ app.use(session({
 require('./config/db');
 //
 //Mount Middleware
+app.use('/membersonly/?', function(req, res, next) {
+  if (req.session.isLoggedIn === true) {
+    next();
+  } else {
+    //res.redirect('/');
+    var message = "Please LOG IN to use this feature";
+    res.render('login', {message: message});
+  }
+});
 app.use('/membersonly/users/?', require('./controllers/users'));
 app.use('/membersonly/gifts/?', require('./controllers/gifts'));
 //app.use('/signup/?', require('./controllers/signup'));
