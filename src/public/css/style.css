@@ -32,7 +32,7 @@ select {
   cursor: pointer;
 }
 button:hover {
-  background-color: #4C649D;
+  background-color: #00C8F8;
 }
 footer {
   text-align: left;
@@ -87,7 +87,7 @@ ul {
   margin: 0;
   padding: 0;
   overflow: hidden;
-  background-color: #4C649D;
+  background-color: #00C8F8;
   position: fixed;
   left: 0;
   top: 0;
@@ -140,5 +140,5 @@ select {
   cursor: pointer;
 }
 button:hover {
-  background-color: #4C649D;
+  background-color: #00C8F8;
 }
