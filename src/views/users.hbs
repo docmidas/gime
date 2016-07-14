@@ -3,7 +3,8 @@
   {{#each user}}
     <div> 
       {{this.username}} <a href="/users/{{@index}}">MoreInfo</a><br />
-      {{this.email}} 
+      {{this.email}}
+      {{this._id}}
     </div>
   {{/each}}
 

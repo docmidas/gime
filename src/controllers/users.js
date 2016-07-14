@@ -13,17 +13,18 @@ var express   = require('express'),
     //console.log(req.body);   
     var usersGifts = []; 
     console.log("My req.session.userId:" + req.session.userId);
-    Gift.find({_id: req.session.userId}, function(error, giftList) {     
+    Gift.find({userId: req.session.userId}, function(error, giftList) {     
       for(var gi = 0; gi < giftList.length; gi++) {
-        if(giftList[gi].userId == user._id) {
+        
           usersGifts.push(giftList[gi]);
-        };  
+         
       };
       console.log("usersGifts is defined as" + usersGifts);
     })
-    setTimeout(function() { 
-      res.render('profile', {gift: usersGifts });
-    }, 6000)
+    // setTimeout(function() { 
+    //   res.render('profile', {gift: usersGifts });
+    // }, 6000);
+    res.render('profile', {gift: usersGifts });
 
   })
   .patch(function(req, res, next) {
@@ -41,13 +42,6 @@ var express   = require('express'),
       });
     res.json({message: "Deleted entry at " + req.params.id});
   });
-
-
-
-
-
-
-
 
 
  //Mongoose
@@ -77,7 +71,8 @@ Users.route('/?')
     User.find(function(err, users) { //first thing is Error and second thing is all users within user database
       console.log(users);  
       //console.log(err);
-      res.json(users);      
+      //res.json(users); 
+      res.render('users', {user: users});     
     })
   })
   .post(function(req, res) {

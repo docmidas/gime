@@ -106,7 +106,7 @@ var express   = require('express'),
         console.log(task);
       });
     res.json({message: "Deleted entry at " + req.params.id});
-  })
+  });
 
 Gifts.route('/?')
   .get(function(req, res) {
@@ -129,7 +129,7 @@ Gifts.route('/?')
       gimeStatus: "gime",
       price: req.body.price
     }, function(err, gifts) {
-      console.log(gifts);
+      //console.log(gifts);
       //res.json(gifts);
       res.redirect('/membersonly/gifts');
     });
