@@ -1,5 +1,5 @@
 //MAIN SERVER FILE
-var dotenv      = require('dotenv').config();
+var dotenv      = require('dotenv').config({silent: true});
 var express     = require('express'),
     app         = express(),
     exphbs      = require('express-handlebars'),
