@@ -1,13 +1,12 @@
 @blue:      #00C8F8;
-@lightBlue: #709CC1;
 @grey:      #6E7376;
 @pink:      #EEB4C0;
 @black:     #000000;
 
-html, body {
-  background-image:      url(http://pixel.brit.co/wp-content/uploads/2015/02/1-Gift-Wrap-Main.jpg);
+html, body { 
   background-size:       100%;
   background-attachment: fixed;
+  background-image:      url(http://pixel.brit.co/wp-content/uploads/2015/02/1-Gift-Wrap-Main.jpg);
 }
 
 button, select {
@@ -22,11 +21,6 @@ button, select {
 
 button:hover {
     background-color: @blue;
-}
-
-footer {
-  text-align: center;
-  color: black;
 }
 
 form {
@@ -50,37 +44,22 @@ p{
 }
 
 img {
-  display: inline-block;
-  float: left;
-  width: 150px;
+  float:  left;
+  width:  150px;
   height: 150px;
   border: 2px solid @black;
   border-radius: 50%;
   margin: 10px 10px 5px 5px;
+  display: inline-block;
+  background-color: @blue;
 }
 
-h1 {
+h1, h2 {
   padding-top: 20px;
   font-size:   48px;
   font-family: sans-serif;
   text-align:  center;
   color:       @black; 
-}
-
-h2 { 
-  padding-top: 20px;
-  font-size:   42px;
-  font-family: sans-serif;
-  text-align:  center;
-  color:       @black; 
-  
-
-}
-
-header {
-  color:      @grey;
-  text-align: center;
- 
 }
 
 ul { 
@@ -98,44 +77,39 @@ ul {
 
 li {
   float: right;
+  a {
+    padding:         14px 16px;
+    display:         block;
+    color:           white;
+    text-align:      center;
+    text-decoration: none;
+  }
+  a:hover {
+    background-color: @grey;
+  }
 }
 
-li a {
-  padding:         14px 16px;
-  display:         block;
-  color:           white;
-  text-align:      center;
-  text-decoration: none;
+.container {
+  display:    flex;
+  margin-top: 75px;
+  padding:    5px 5px;
+  border:     2px solid @blue;
 }
 
-li a:hover {
-  background-color: @grey;
-}
-
-.col-12{
+.main {
+  height:     600px;
+  width:      100%;  
+  margin-top: 25px;
+  border:     2px solid @blue;
   float:      left;
-  width:      100%;
-  margin-top: 10px;
-  border: 2px solid @blue;
 }
 
-.header-container  {
-  margin-top: 75px
+.onmouseover { 
+  background-color: @blue;
 }
 
-.form-block {
-  display: block;
-  margin:  15px;
+.image {
+  text-align: center;
 }
 
-// .site-footer {
-//   text-align: center;
-//   position: fixed;
-//   left: 0;
-//   bottom: 0;
-//   height: 58px;
-//   width: 100%;
-//   background: transparent;
-//   margin: 0;
-// }
 

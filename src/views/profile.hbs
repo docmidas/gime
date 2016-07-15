@@ -1,60 +1,91 @@
+<header class="container">
+  <div class="box">
+    <div class="col-12">
+      <img src="http://globalci.org/wp-content/themes/gci/images/default.jpg">
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris dolor sem, posuere et ante a, tincidunt mattis mauris. Vestibulum ac ipsum sed odio pulvinar semper. Morbi pellentesque, nibh eget feugiat tincidunt, ipsum neque cursus massa, eu commodo massa ipsum vitae nulla. Suspendisse congue facilisis tellus vitae pretium. Donec pulvinar, lectus ut dapibus consectetur, libero diam porta arcu, vitae aliquet lectus odio id ante. Nullam gravida orci accumsan, sagittis nisl nec, suscipit diam. Vestibulum et augue elit. Sed a enim et nisl dapibus sollicitudin. Nullam viverra ullamcorper lorem sit amet rhoncus.</p>
+    </div>  
+  </div>
+</header>
 
-  <header class="header-container">
-    <div class="row">
-      <div class="col-12"> 
-        <img src="http://globalci.org/wp-content/themes/gci/images/default.jpg">
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris dolor sem, posuere et ante a, tincidunt mattis mauris. Vestibulum ac ipsum sed odio pulvinar semper. Morbi pellentesque, nibh eget feugiat tincidunt, ipsum neque cursus massa, eu commodo massa ipsum vitae nulla. Suspendisse congue facilisis tellus vitae pretium. Donec pulvinar, lectus ut dapibus consectetur, libero diam porta arcu, vitae aliquet lectus odio id ante. Nullam gravida orci accumsan, sagittis nisl nec, suscipit diam. Vestibulum et augue elit. Sed a enim et nisl dapibus sollicitudin. Nullam viverra ullamcorper lorem sit amet rhoncus.</p>
-      </div>
-    </div>
-  </header>
-  
-  <main class="main-container">
-    <div class="row">
-      <div class="col-12">
-        <h2>Create New Gime</h2>
+<main class="container-1">
+  <div class="box">
+    <div class="col-2"></div>
+    <div class="col-8">
+      <div class="main">
+       <h2>Create New Gime</h2>
         <form name="profile-form" method="post" action="/membersonly/gifts" accept-charset="utf-8">
-          <label for="name">Category</label>
-          <select name="category" required />
-          <option value=""></option>
-          <option value="artsandcrafts">Arts and Crafts</option>
-          <option value="auto">Auto</option>
-          <option value="beauty">Beauty</option>
-          <option value="books">Books</option>
-          <option value="clothing">Clothing</option>
-          <option value="electronics">Electronics</option>
-          <option value="home">Home</option>
-          <option value="media">Media</option>
-          <option value="kids">Kids and Toys</option>
-          <option value="sports">Sports</option> 
-          </select>
-          <br><br>
-          <input type="text" name="picture" value="" placeholder="Type Image url">
-          <br />
-          <input type="text" name="itemname" value="" placeholder="Item Name" required />
-          <br />
-          <input type="text" name="description" value="" placeholder="Description" />
-          <br />
-          $ <input type="number" name="price" placeholder="Estimated Price">
-          <br />
-          <button>Create</button>
-        </form> 
-        {{#each gift}}
+        <label for="name">Category</label>
+        <select name="category" required />
+        <option value=""></option>
+        <option value="artsandcrafts">Arts and Crafts</option>
+        <option value="auto">Auto</option>
+        <option value="beauty">Beauty</option>
+        <option value="books">Books</option>
+        <option value="clothing">Clothing</option>
+        <option value="electronics">Electronics</option>
+        <option value="home">Home</option>
+        <option value="media">Media</option>
+        <option value="kids">Kids and Toys</option>
+        <option value="sports">Sports</option> 
+        </select>
+        <br><br>
+        <input type="text" name="picture" value="" placeholder="Type Image url">
+        <br />
+        <input type="text" name="itemname" value="" placeholder="Item Name" required />
+        <br />
+        <input type="text" name="description" value="" placeholder="Description" />
+        <br />
+        $ <input type="number" name="price" placeholder="Estimated Price">
+        <br />
+        <button>Create</button>
+      </form> 
+      {{#each gift}}
       <div class="image">
-        <img class="gift-image" src="{{this.imgUrl}}"> 
-        <!-- {{this.userId}}<br /> -->
-        <!-- {{this.category}}<br />
-        {{this.description}}<br />
-        {{this.price}}<br />
-        {{this.name}} <a href="/users/{{@index}}">MoreInfo</a><br />
-      </div> -->
+           <img src="{{this.imgUrL}}" alt="{{this.name}}" 
+          onmouseover="this.src='{{this.name}}'; "onmouseout="this.src='{{this.imgUrl}}';"/> 
+      </div>
       {{/each}}
-     </div>
-
-    
-  </main>
+    </div>
+  </div>
+</main>
 
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
