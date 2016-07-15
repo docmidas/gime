@@ -4,7 +4,10 @@
   "description": "giftlist",
   "main": "src/index.js",
   "scripts": {
+<<<<<<< HEAD
     "test": "echo \"Error: no test specified\" && exit 1",
+=======
+>>>>>>> 1fdfb0cda57d0975cb7dbe84d563e18c08ffe10b
     "start": "node src/index.js"
   },
   "repository": {

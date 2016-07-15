@@ -1,4 +1,5 @@
 //MAIN SERVER FILE
+var dotenv      = require('dotenv').config({silent: true});
 var express     = require('express'),
     app         = express(),
     exphbs      = require('express-handlebars'),
@@ -43,8 +44,13 @@ app.use('/membersonly/users/?', require('./controllers/users'));
 app.use('/membersonly/gifts/?', require('./controllers/gifts'));
 app.use(require('./controllers/home'));
 ////////////////
+<<<<<<< HEAD
 ////==START SERVER
+=======
+////==START SERVER 
+>>>>>>> 1fdfb0cda57d0975cb7dbe84d563e18c08ffe10b
 var server = app.listen(process.env.PORT || 3000, function() {
   console.log("Server listening @: " + server.address().port);
 });
+/////
 
