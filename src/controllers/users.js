@@ -4,9 +4,8 @@ var express   = require('express'),
     mongoose  = require('mongoose'),
     User   = require('../models/user'),
     Gift        = require(__dirname + '/../models/gift');
-
-
-//SUCCESFUL LOGIN OR SIGN UP LEADS HERE
+///////////
+////SUCCESFUL LOGIN OR SIGN UP LEADS HERE
  Users.route('/myprofile/?')
   .get(function(req, res, next) {
     //console.log(req.body);   
@@ -16,29 +15,23 @@ var express   = require('express'),
       for(var gi = 0; gi < giftList.length; gi++) {        
           usersGifts.push(giftList[gi]);         
       };
-      console.log("usersGifts is defined as" + usersGifts);
     })
     // setTimeout(function() { 
     //   res.render('profile', {gift: usersGifts });
     // }, 6000);
     res.render('profile', {gift: usersGifts, isLoggedIn: req.session.isLoggedIn ? true : false });
   })
-  .patch(function(req, res, next) {
-    var id = req.params.id;
-    User.findByIdAndUpdate(id, { username: "jaxx", password: "ffp", email: "gotcha@mk.com"}, function (err, task) {
-      console.log(task);
-    });
-    res.json({message: "Updated todo at " + req.params.id});
-  })
-  .delete(function(req, res, next) {
-    var id = req.params.id;
-    User.findByIdAndRemove(id, function(err, task) {
-        console.log("Deleted:");
-        console.log(task);
-      });
-    res.json({message: "Deleted entry at " + req.params.id});
-  });
-////////////
+/////Keeping for later. Will allow for removing items off gift list
+///
+  // .delete(function(req, res, next) {
+  //   var id = req.params.id;
+  //   User.findByIdAndRemove(id, function(err, task) {
+  //       console.log("Deleted:");
+  //       console.log(task);
+  //     });
+  //   res.json({message: "Deleted entry at " + req.params.id});
+  // });
+//////////// End of KEEP FOR LATER
 ////!!!!NEW==Route: root/membersonly/users/:id
  Users.route('/:username/?')
   .get(function(req, res, next) {
@@ -63,7 +56,7 @@ var express   = require('express'),
       }
     });
   })
-  ////////////DELETE by USERNAME
+  ////////////DELETE by USERNAME. For admin purposes.
 ///////DEX change user id to username below in this DELTE method.
   .delete(function(req, res, next) {
     var id = req.params.id;

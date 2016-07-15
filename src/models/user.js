@@ -1,6 +1,6 @@
 //USER MODEL
 var mongoose = require('mongoose');
-
+////////
 //Constructor function
 var UserSchema = new mongoose.Schema({
   username: String,
@@ -12,5 +12,5 @@ var UserSchema = new mongoose.Schema({
   bdaymonth: Date,
   gender: String
 });
-
+/////////
 module.exports = mongoose.model('User', UserSchema);

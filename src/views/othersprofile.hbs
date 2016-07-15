@@ -1,20 +1,12 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>{{username}}'s Profile</title>
-  <link rel="stylesheet" type="text/css" href="css/style.css">
-</head>
-<body>
   <header class="header-container">
     <div class="row">
       <div class="col-12"> 
-        <img src="https://scontent-mia1-1.xx.fbcdn.net/v/t1.0-9/12524112_10103231045261499_3498899140915922885_n.jpg?oh=46da281501b4ff80876f5e1f5f079d78&oe=5823F3EF">
+        <img src="http://globalci.org/wp-content/themes/gci/images/default.jpg">
         <h2>{{username}}'s Giftlist</h2>
         <p>Lorem ipsum </p>
       </div>
     </div>
-  </header>
-  
+  </header>  
   <main class="main-container">
     <div class="row">
       <div class="col-12">       
@@ -22,20 +14,18 @@
         <div class="image">
           <img class="gift-image" src="{{this.imgUrl}}">
         </div> 
-        <div> 
-          {{this.name}} <a href="/users/{{@index}}">MoreInfo</a><br />
-          <!-- {{this.userId}}<br /> -->
+        <!-- <div> 
+          {{this.name}} 
+          <a href="/users/{{@index}}">MoreInfo</a>
+          {{this.userId}}<br />
           {{this.category}}<br />
           {{this.description}}<br />
           {{this.price}}<br />
-        </div>
+        </div> -->
       {{/each}}
      </div>
     </div>   
   </main>
-
-</body>
-</html>
 
 
 

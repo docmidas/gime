@@ -7,9 +7,7 @@ var express         = require('express'),
     User            = require(__dirname + '/../models/user'),
     bcrypt          = require('bcrypt'),
     Gift            = require(__dirname + '/../models/gift');
-
-
-
+////////
 /////////==========================
 HomeController.route('/signup/?')
 // GET /
@@ -43,11 +41,11 @@ HomeController.route('/signup/?')
         message = "Please try LOGGING IN. This email is already registered"
       }
     });
-  console.log("THIS IS THE UNIQUE VAL before unique check: " + unique);
+  //console.log("THIS IS THE UNIQUE VAL before unique check: " + unique);
 //
   setTimeout(function() {  
   if(unique === false){
-    console.log(message);
+    //console.log(message);
     res.render('signup', {message: message, isLoggedIn: req.session.isLoggedIn ? true : false}); 
   }else{
       bcrypt.hash(req.body.password, 10, function(err, hash) {
@@ -68,7 +66,7 @@ HomeController.route('/signup/?')
       } else {
         req.session.isLoggedIn  = true;
         req.session.userId      = user._id;
-        console.log("Session USER ID HAS BEEN SET: " + req.session.userId );
+        //console.log("Session USER ID HAS BEEN SET: " + req.session.userId );
         res.redirect('/membersonly/users/myprofile');      
       }
     });
@@ -77,15 +75,15 @@ HomeController.route('/signup/?')
 }, 6000);
 });
 ////////=======================
-//SIGN OUT!!!//
+////SIGN OUT!!!//
 HomeController.route("/signout/?")
   .get(function(req, res, next) {
     req.session.isLoggedIn  = false;
     req.session.userId      = null;
-    console.log("SIGNED OUT /n req.session.userId: " + req.session.userId + "/n req.session.isLoggedIn: " + req.session.isLoggedIn);
+    //console.log("SIGNED OUT /n req.session.userId: " + req.session.userId + "/n req.session.isLoggedIn: " + req.session.isLoggedIn);
     res.redirect("/");
   });
-
+////
 ////////=======================
 HomeController.route('/?')
   // GET /
@@ -109,15 +107,14 @@ HomeController.route('/?')
             res.send('ERROR: ' + err);
           } else if (result) {
             req.session.isLoggedIn  = true;
-                req.session.userId      = user._id;
-              res.redirect('/membersonly/users/myprofile');        
+            req.session.userId      = user._id;
+            res.redirect('/membersonly/users/myprofile');        
           } else {
-            //res.send('Wrong password!');
             res.render('login', {message: "Wrong Password", isLoggedIn: req.session.isLoggedIn ? true : false});
           }
         })
       }
     })
   });
-
+//////
 module.exports = HomeController;

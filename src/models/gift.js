@@ -1,6 +1,6 @@
 //GIFT MODEL
 var mongoose = require('mongoose');
-
+/////////
 //Constructor function
 var GiftSchema = new mongoose.Schema({
   userId: String,
@@ -11,7 +11,6 @@ var GiftSchema = new mongoose.Schema({
   gimeStatus: String,
   price: Number
   //privacy: Boolean
-
 });
-
+///////
 module.exports = mongoose.model('Gift', GiftSchema);
