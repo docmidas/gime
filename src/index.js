@@ -5,6 +5,7 @@ var express     = require('express'),
     fs          = require('fs'),
     bodyParser  = require('body-parser'),
     session     = require('express-session');
+    dotenv      = require('dotenv').config();
 /////////////////
 ////==SET VIEW ENGINE
 app.engine('hbs', exphbs({
