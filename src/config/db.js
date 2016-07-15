@@ -1,5 +1,5 @@
 var mongoose = require('mongoose');
-var connectionString = 'mongodb://localhost/gimeUsers';
+var connectionString = process.env.NODE_ENV === 'production' ? 'mongodb://<shawna>:<tamar88>@ds011705.mlab.com:11705/gime''mongodb://localhost/gimeUsers';
 
 mongoose.connect(connectionString);
 
